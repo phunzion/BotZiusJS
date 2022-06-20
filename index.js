@@ -33,13 +33,11 @@ client.once('ready', () => {
 		)
 		.addField('Inline field title', 'Some value here', true)
 		.setImage('https://i.imgur.com/AfFp7pu.png')
-		.setTimestamp()
-		.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+		.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' })
+		.setTimestamp();
 
-	const channels = client.guilds;
-	console.log(`channels: ${channels}`);
-	const channel = channels.filter(channel => channel.name=='pruebas');
-	console.log(channel);
+	const channel = client.channels.resolve('767020790117433354');
+	// console.log(channel);
 	channel.send({ embeds: [exampleEmbed] });
 });
 
