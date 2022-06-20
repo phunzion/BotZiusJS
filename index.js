@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
 const { token } = require('./config.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -17,6 +17,30 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log('Ready!');
+
+	const exampleEmbed = new MessageEmbed()
+		.setColor('#0099ff')
+		.setTitle('Some title')
+		.setURL('https://discord.js.org/')
+		.setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
+		.setDescription('Some description here')
+		.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+		.addFields(
+			{ name: 'Regular field title', value: 'Some value here' },
+			{ name: '\u200B', value: '\u200B' },
+			{ name: 'Inline field title', value: 'Some value here', inline: true },
+			{ name: 'Inline field title', value: 'Some value here', inline: true },
+		)
+		.addField('Inline field title', 'Some value here', true)
+		.setImage('https://i.imgur.com/AfFp7pu.png')
+		.setTimestamp()
+		.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+	const channels = client.guilds;
+	console.log(`channels: ${channels}`);
+	const channel = channels.filter(channel => channel.name=='pruebas');
+	console.log(channel);
+	channel.send({ embeds: [exampleEmbed] });
 });
 
 client.on('interactionCreate', async interaction => {
