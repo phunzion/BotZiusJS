@@ -38,13 +38,11 @@ client.on('interactionCreate', async interaction => {
 	if (!interaction.isButton()) return;
 	
 	const command = client.commands.get(interaction.message.interaction.commandName);
-	console.log(interaction);
+	
 	if (!command) return;
 
 	try {
-		console.log('a')
 		await command.executeButton(interaction);
-		console.log('b')
 	} catch (error) {
 		console.error(error);
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
