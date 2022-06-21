@@ -9,11 +9,12 @@ module.exports = {
 			.setName('channel')
 			.setDescription('The channel.')
 			.setRequired(true)),
+
 	async execute(interaction) {
 		// console.log(interaction)
 		const name = interaction.options.getString('channel');
 		const channel = interaction.guild.channels.cache.find(channel => channel.name === name);
 		if (!channel) return interaction.reply(`${name} doesn't exist.`);
-		return interaction.reply(`${name}: ${channel.id}`);
+		interaction.reply({content: `${name}: ${channel.id}`, ephemeral: true});
 	},
 };
