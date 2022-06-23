@@ -1,5 +1,5 @@
-const types = ['acero', 'agua', 'bicho', 'dragon', 'electrico', 'fantasma', 'fuego', 'hada', 'hielo',
-    'lucha', 'normal', 'planta', 'psiquico', 'roca', 'siniestro', 'tierra', 'veneno', 'volador'];
+const types = ['steel', 'water', 'bug', 'dragon', 'electric', 'ghost', 'fire', 'fairy', 'ice',
+    'fighting', 'normal', 'grass', 'psychic', 'rock', 'dark', 'ground', 'poison', 'flying'];
 
 const values = [[0.5, 0.5, 1.0, 1.0, 0.5, 1.0, 0.5, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 2.0, 1.0, 1.0, 1.0, 1.0],
 [1.0, 0.5, 1.0, 0.5, 1.0, 1.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.5, 1.0, 2.0, 1.0, 2.0, 1.0, 1.0],
