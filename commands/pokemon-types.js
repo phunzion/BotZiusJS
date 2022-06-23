@@ -7,12 +7,12 @@ const { pokemon } = require('../utils/pokemon/tables.js');
 const command = {}
 
 command.data = new SlashCommandBuilder()
-	.setName('pokemon')
+	.setName('pokemon-types')
 	.setDescription('Stregths or weaknesses of a pokemon depending on its types.')
 	.addStringOption(option =>
 		option
 			.setName('target')
-			.setDescription('Strength or weakness.')
+			.setDescription('Strengths or weaknesses.')
 			.setRequired(true)
 			.setAutocomplete(true))
 	.addStringOption(option =>
@@ -33,11 +33,12 @@ command.execute = async interaction => {
 	const type2 = interaction.options.getString('type2');
 	const pt = new PokemonTypes(pokemon);
 	pt.setTypesByName(type1, type2);
-	const result = pt.result(target === 'weakness');
+	const result = pt.result(target === 'weaknesses');
 
 	const embed = new MessageEmbed()
 		.setColor('#0099ff')
-		.setTitle(`Pokemon ${(type2) ? `${type1}/${type2}` : type1} ${target}`)
+		.setTitle('Pokemon Types')
+		.setDescription(`${target} of ${(type2 && type1!=type2) ? `${type1}/${type2}` : `${type1}`}`)
 		.setTimestamp();
 
 	if (result['4']) embed.addField('Effectivity x4:', result['4'].join(', '));

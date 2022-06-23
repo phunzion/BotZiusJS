@@ -8,12 +8,12 @@ event.execute = async interaction => {
 
     // console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered "${interaction.commandName}" autocomplete interaction.`);
 
-    if (interaction.commandName === 'pokemon') {
+    if (interaction.commandName === 'pokemon-types') {
 		const focusedOption = interaction.options.getFocused(true);
 		let choices;
 
 		if (focusedOption.name === 'target') {
-			choices = ['strength', 'weakness'];
+			choices = ['strengths', 'weaknesses'];
 		}
 
 		if (focusedOption.name === 'type1') {

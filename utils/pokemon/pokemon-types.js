@@ -28,9 +28,9 @@ class PokemonTypes {
         return this.types.indexOf(name);
     }
 
-    result(weakness = false) {
+    result(weaknesses = false) {
         let values = this.values;
-        if (weakness) values = transpose(this.values);
+        if (weaknesses) values = transpose(this.values);
         if (this.type1 === this.type2) this.type2 = null;
         const evaluate = (this.type2) ? dotMultiply(values[this.type1], values[this.type2]) : values[this.type1];
         const result = {};
