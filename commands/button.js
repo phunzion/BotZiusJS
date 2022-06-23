@@ -25,7 +25,6 @@ command.execute = async interaction => {
 };
 
 command.executeButton = async interaction => {
-	console.log(interaction)
 	await interaction.reply('Presionado!');
 };
 
