@@ -1,5 +1,7 @@
-const {pokemon} = require('../utils/pokemon/tables');
+const { pokemon } = require('../utils/pokemon/tables');
 const event = {};
+
+const choicesCache = pokemon.types.sort();
 
 event.name = 'interactionCreate';
 
@@ -12,16 +14,16 @@ event.execute = async interaction => {
 		const focusedOption = interaction.options.getFocused(true);
 		let choices;
 
-		if (focusedOption.name === 'target') {
-			choices = ['strengths', 'weaknesses'];
+		if (focusedOption.name === 'weakness') {
+			choices = [true, false];
 		}
 
 		if (focusedOption.name === 'type1') {
-			choices = pokemon.types;
+			choices = choicesCache;
 		}
 		
 		if (focusedOption.name === 'type2') {
-			choices = pokemon.types;
+			choices = choicesCache;
 		}
 		const filtered = choices.filter(choice => choice.includes(focusedOption.value));
 		await interaction.respond(
