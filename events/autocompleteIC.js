@@ -1,7 +1,7 @@
 const { pokemon } = require('../utils/pokemon/tables');
 const event = {};
 
-const choicesCache = pokemon.types.sort();
+const choicesCache = pokemon.types.slice().sort();
 
 event.name = 'interactionCreate';
 
