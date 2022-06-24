@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebot": "node utils/deploy-commands.js",
     "bot": "node index.js",
+    "predev": "node utils/deploy-commands.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
